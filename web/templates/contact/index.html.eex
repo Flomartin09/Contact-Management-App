@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="list-group">
+      <%= link "My Groups", to: contact_group_path(@conn, :index), class: "list-group-item" %>
+      <%= link to: contact_path(@conn, :index), class: active_group?(@conn) do %>
+        All Contacts
+        <span class="badge"><%= length(@contacts) %></span>
+      <% end %>
+      <%= render_many @groups, Crm.ContactView, "_group.html", as: :group, conn: @conn, user_id: @current_user.id %>
+    </div>
+  </div><!-- /.col-md-3 -->
+
+  <div class="col-md-9">
+    <div class="row <%= pack?(@contacts) %>">
+      <%= render_many @contacts, Crm.ContactView, "_contact.html", conn: @conn, contacts: @contacts%>
+    </div>
+
+    <div class="text-center">
+        <%= paginate @conn, @kerosene %>
+    </div>
+  </div>
+</div>
