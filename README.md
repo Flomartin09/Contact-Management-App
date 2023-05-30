@@ -69,7 +69,6 @@ Users can delete groups.
 
 Users can upload avatar for contacts, it's done with the packages [Arc](https://github.com/stavro/arc "Arc"), [Arc.Ecto](https://github.com/stavro/arc_ecto "Arc Ecto").
 
-Note: Uploads won't work in heroku because I'm using local storage.
 
 ---
 
